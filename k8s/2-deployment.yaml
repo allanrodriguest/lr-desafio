@@ -17,7 +17,6 @@ spec:
     spec:
       containers:
         - name: lr-app
-          # Replace this image with your dockerhub image
           image: allanrodriguest/lr-infra:latest
           imagePullPolicy: Always
           ports:
@@ -67,7 +66,6 @@ spec:
             limits:
               cpu: "500m"
               memory: "512Mi"
-      # Spread pods across availability zones:
       topologySpreadConstraints:
         - maxSkew: 1
           topologyKey: topology.kubernetes.io/zone
@@ -75,7 +73,6 @@ spec:
           labelSelector:
             matchLabels:
               app: lr-app
-      # Also prefer to not schedule two pods on same node
       affinity:
         podAntiAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
