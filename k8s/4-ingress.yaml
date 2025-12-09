@@ -8,7 +8,6 @@ metadata:
     
 spec:
   rules:
-    - host: <your.domain.example>   # replace or remove rule to use default host
       http:
         paths:
           - path: /
